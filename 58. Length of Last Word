@@ -1,0 +1,44 @@
+/*Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+A word is a maximal 
+substring
+ consisting of non-space characters only.
+*/
+//Solution starts here:
+
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+    char s[80], word[80][80];
+    int i = 0, j = 0, k = 0;
+
+    printf("Enter the string:");
+    fgets(s, sizeof(s), stdin);
+
+    // Manually split the string into words using 2D array
+    while(s[i] != '\0' && s[i] != '\n'){// stop at the end of string or newline
+        if(s[i] != ' ')
+            word[k][j++] = s[i]; // add character to current word
+        else if(j>0) {
+            word[k][j] = '\0'; //end the current word
+            k++; //move to the next word
+            j = 0; // reset word character index
+        }
+        i++;
+    }
+
+    if(j>0){
+        word[k][j] = '\0';
+        k++;
+    }
+
+    /*for(int n=0; n<k; n++){ printing all the words
+        printf("Word%d: %s\n", n+1, word[n]);
+    }*/
+
+    printf("The last word is '%s' with length %d.\n", word[k-1], (int) strlen(word[k-1]));
+
+    return 1;
+}
