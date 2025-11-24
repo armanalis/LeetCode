@@ -87,7 +87,8 @@ int romanToInt(char* s) {
         break;
     
     default:
-        break;  
+        break; 
+         
     }
     return 0; // Should not be reached, but prevents compiler warnings
 }
