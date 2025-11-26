@@ -8,8 +8,8 @@
 int removeDuplicates(int* nums, int numsSize) {
     int k = 0;
     for (int i = 1; i < numsSize; i++) {
-        if (nums[i] != nums[k]) {//i = 2
-            k++;//k = 1
+        if (nums[i] != nums[k]) {
+            k++;
             nums[k] = nums[i];
         }
 
